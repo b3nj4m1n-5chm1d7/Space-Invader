@@ -1,0 +1,12 @@
+add_to_autocomp_indexes=conio2 (windows)
+set_default_template=conio2-w32.tpl
+set_cpp_template=conio2-w32.tpl
+add_custom_tool
+custom_tool_name=documentación de la biblioteca conio2
+custom_tool_command=bin\shellexecute.exe "${MINGW_DIR}"\conio2\doc\conio.chm
+custom_tool_workdir=${ZINJAI_DIR}
+custom_tool_pre_action=0
+custom_tool_post_action=0
+custom_tool_output_mode=0
+custom_tool_async_exec=1
+custom_tool_on_toolbar=1

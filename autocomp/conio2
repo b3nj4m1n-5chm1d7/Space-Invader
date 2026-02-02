@@ -1,0 +1,106 @@
+<constream>
+	inline std::ostream & insline(std::ostream &)
+	inline std::ostream & delline(std::ostream &)
+	inline std::ostream & normvideo(std::ostream &)
+	inline std::ostream & lowvideo(std::ostream &)
+	inline std::ostream & highvideo(std::ostream &)
+	inline std::ostream & clreol(std::ostream &)
+	inline std::ostream & clrscr(std::ostream &)
+	inline std::basic_ostream<CharT,Traits> & operator<<(std::basic_ostream<CharT,Traits> &,_Setcrsrtype)
+	inline _Setcrsrtype setcrsrtype(int)
+	inline std::basic_ostream<CharT,Traits> & operator<<(std::basic_ostream<CharT,Traits> &,_Setattr)
+	inline _Setattr setattr(int)
+	inline std::basic_ostream<CharT,Traits> & operator<<(std::basic_ostream<CharT,Traits> &,_Setbk)
+	inline _Setbk setbk(int)
+	inline std::basic_ostream<CharT,Traits> & operator<<(std::basic_ostream<CharT,Traits> &,_Setclr)
+	inline _Setclr setclr(int)
+	inline std::basic_ostream<CharT,Traits> & operator<<(std::basic_ostream<CharT,Traits> &,_Setxy)
+	inline _Setxy setxy(int,int)
+	_CONSTREAM_
+	class _Setcrsrtype
+		int type
+	class _Setattr
+		int _attr
+	class _Setbk
+		int color
+	class _Setclr
+		int color
+	class _Setxy
+		int y
+		int x
+<conio2.h>
+	int _cwscanf(const wchar_t *,...)
+	int _cwprintf(const wchar_t *,...)
+	int _cputws(const wchar_t *)
+	unsigned short _ungetwch(unsigned short)
+	unsigned short _putwch(wchar_t)
+	unsigned short _getwche(void)
+	unsigned short _getwch(void)
+	wchar_t * _cgetws(wchar_t *)
+	void lowvideo(void)
+	void highvideo(void)
+	char * getpass(const char *,char *)
+	int wherey(void)
+	int wherex(void)
+	void textcolor(int)
+	void textbackground(int)
+	void normvideo(void)
+	void textattr(int)
+	void _setcursortype(int)
+	void putchxy(int,int,char)
+	void cputsxy(int,int,char *)
+	void gotoxy(int,int)
+	void movetext(int,int,int,int,int,int)
+	void puttext(int,int,int,int,char_info *)
+	void _conio_gettext(int,int,int,int,char_info *)
+	void insline(void)
+	void delline(void)
+	void clrscr(void)
+	void clreol(void)
+	void inittextinfo(void)
+	void gettextinfo(text_info *)
+	_NORMALCURSOR
+	_SOLIDCURSOR
+	_NOCURSOR
+	ScreenClear
+	gettext
+	cwscanf
+	cwprintf
+	cputws
+	ungetwch
+	putwch
+	getwche
+	getwch
+	cgetws
+	cscanf
+	cputs
+	cprintf
+	cgets
+	COLORS
+	WHITE
+	YELLOW
+	LIGHTMAGENTA
+	LIGHTRED
+	LIGHTCYAN
+	LIGHTGREEN
+	LIGHTBLUE
+	DARKGRAY
+	LIGHTGRAY
+	BROWN
+	MAGENTA
+	RED
+	CYAN
+	GREEN
+	BLUE
+	BLACK
+	class char_info
+		unsigned short attr
+		char letter
+		wchar_t letter
+	class text_info
+		unsigned char screenheight
+		unsigned char screenwidth
+		unsigned short normattr
+		unsigned short attribute
+		unsigned char cury
+		unsigned char curx

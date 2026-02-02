@@ -1,0 +1,173 @@
+# generado por ZinjaI-w32-20191006
+[Init]
+left_panels=0
+show_welcome=1
+show_beginner_panel=0
+show_minimap_panel=0
+show_tip_on_startup=1
+new_file=2
+version=20191006
+pos_x=0
+pos_y=0
+size_x=0
+size_y=0
+maximized=1
+lang_es=0
+zinjai_server_port=46527
+save_project=1
+always_add_extension=0
+autohide_toolbars_fs=1
+autohide_panels_fs=1
+autohide_menus_fs=0
+check_for_updates=0
+prefer_explorer_tree=0
+cppcheck_seen=0
+doxygen_seen=0
+wxfb_seen=0
+show_explorer_tree=0
+graphviz_dot=1
+inherit_num=3
+history_len=10
+proxy=
+language_file=spanish
+max_errors=500
+max_jobs=8
+wrap_mode=1
+singleton=1
+stop_compiling_on_error=1
+autohide_panels=0
+fullpath_on_project_tree=0
+use_cache_for_subcommands=1
+beautify_compiler_errors=1
+colour_theme=default.zcs
+complements_timestamp=20260102165512
+
+[Debug]
+allow_edition=0
+autohide_panels=1
+autohide_toolbars=1
+use_colours_for_inspections=1
+inspections_can_have_side_effects=0
+raise_main_window=1
+compile_again=1
+always_debug=0
+use_blacklist=1
+macros_file=samples\debug_macros.gdb
+show_do_that=0
+validate_breakpoint_address=1
+show_thread_panel=0
+show_log_panel=0
+inspections_on_right=0
+inspect_on_mouse_over=1
+readnow=0
+catch_throw=1
+auto_solibs=0
+return_focus_on_continue=1
+improve_inspections_by_type=1
+no_debug_heap=1
+inspection_improving_template=std::vector<${T}, std::allocator<${T}> >|>pvector ${EXP}
+inspection_improving_template=std::stack<${T}, std::deque<${T}, std::allocator<${T}> > >|>pstack ${EXP}
+inspection_improving_template=std::deque<${T}, std::allocator<${T}> >|>pdeque ${EXP}
+inspection_improving_template=std::queue<${T}, std::deque<${T}, std::allocator<${T}> > >|>pqueue ${EXP}
+inspection_improving_template=std::priority_queue<${T}, std::vector<${T}, std::allocator<${T}> >, ${C} >|>ppqueue ${EXP}
+inspection_improving_template=std::bitset<${N}>|>pbitset ${EXP}
+inspection_improving_template=std::set<${T}, ${C}, std::allocator<${T}> >|>pset ${EXP} '${T}'
+inspection_improving_template=std::list<${T}, std::allocator<${T}> >|>plist ${EXP} '${T}'
+inspection_improving_template=std::map<${T1}, ${T2}, ${C}, std::allocator<${P}> >|>pmap ${EXP} '${T1}' '${T2}'
+inspection_improving_template=std::list<${T}, std::allocator<${T}> >::iterator|*((${T}*)(${EXP}._M_node+1)) @1
+inspection_improving_template=std::_List_iterator<${T}>|*((${T}*)(${EXP}._M_node+1)) @1
+inspection_improving_template=std::string|(${EXP})._M_dataplus._M_p
+inspection_improving_template=std::basic_string<char, std::char_traits<char>, std::allocator<char> >|(${EXP})._M_dataplus._M_p
+inspection_improving_template=std::${NS}::list<${T}, std::allocator<${T}> >::iterator|*((${T}*)(${EXP}._M_node+1)) @1
+inspection_improving_template=std::${NS}::list<${T}, std::allocator<${T}> >|>plist ${EXP} '${T}'
+inspection_improving_template=std::${NS}::string|(${EXP})._M_dataplus._M_p
+
+[Styles]
+forced_dpi=0
+print_size=8
+font_size=10
+font_name=Courier New
+colour_theme=default.zcs
+
+[Source]
+smartIndent=1
+indentPaste=1
+bracketInsertion=1
+syntaxEnable=1
+foldEnable=1
+indentEnable=1
+whiteSpace=0
+lineNumber=1
+overType=0
+autocompFilters=1
+callTips=1
+autocompTips=1
+toolTips=1
+autotextEnabled=1
+autocloseStuff=0
+autoCompletion=2
+avoidNoNewLineWarning=1
+edgeColumn=80
+alignComments=80
+tabWidth=4
+tabUseSpaces=0
+
+[Running]
+cpp_compiler_options=-Wall -pedantic-errors -O0 -Werror=return-type -finput-charset=iso-8859-1 -fexec-charset=cp437
+c_compiler_options=-Wall -pedantic-errors -O0 -finput-charset=iso-8859-1 -fexec-charset=cp437
+wait_for_key=1
+always_ask_args=0
+check_includes=1
+
+[Help]
+wxhelp_index=
+autocomp_indexes=AAA_Directivas_de_Preprocesador,AAA_Estandar_C,AAA_Estandar_Cpp,AAA_STL,AAA_Palabras_Reservadas,AAA_Estandar_Cpp_11,AAA_STL_11,AAA_Palabras_Reservadas_11,conio2 (windows)
+min_len_for_completion=3
+show_extra_panels=1
+
+[Files]
+temp_dir=config.here\tmp
+img_viewer=
+xdot_command=
+skin_dir=imgs
+debugger_command=gdb
+toolchain=mingw32-gcc6
+cppcheck_command=
+valgrind_command=
+terminal_command=
+explorer_command=explorer
+c_template=default_c.tpl
+cpp_template=conio2-w32.tpl
+default_template=conio2-w32.tpl
+default_project=<main>
+autocodes_file=config.here\autocodes
+doxygen_command=c:\archivos de programa\doxygen\bin\doxygen.exe
+wxfb_command=
+browser_command=
+project_folder=projects
+last_dir=C:\Users\Desktop\Downloads\zinjai\zinjai\projects\MiProyecto
+last_project_dir=C:\Users\Ake\Desktop\zinjaiPortable\zinjai\projects\MiProyecto
+last_project_0=C:\Users\Desktop\Downloads\zinjai\zinjai\projects\MiProyecto\MiProyecto.zpr
+last_project_1=C:\Users\Ake\Desktop\zinjaiPortable\zinjai\projects\MiProyecto\MiProyecto.zpr
+
+[Columns]
+inspections_grid_0=1
+inspections_grid_1=1
+inspections_grid_2=1
+inspections_grid_3=1
+backtrace_grid_0=1
+backtrace_grid_1=1
+backtrace_grid_2=1
+backtrace_grid_3=1
+backtrace_grid_4=1
+
+[CustomTools]
+name_0=documentación de la biblioteca conio2
+command_0=bin\shellexecute.exe "${MINGW_DIR}"\conio2\doc\conio.chm
+workdir_0=${ZINJAI_DIR}
+pre_action_0=0
+post_action_0=0
+output_mode_0=0
+async_exec_0=1
+on_toolbar_0=1
+
