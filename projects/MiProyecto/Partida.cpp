@@ -1,7 +1,11 @@
 #include "Partida.h"
+#include "Jugador.h"
+
+Jugador player;
 
 Partida::inicio() {
-	gotoxy(10,10);
-	cout<<"a";
+	
+	player.Personaje();
+	
 }
 
