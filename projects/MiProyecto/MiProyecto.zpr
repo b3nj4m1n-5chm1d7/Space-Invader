@@ -23,7 +23,7 @@ cursor=15:16
 open=true
 [source]
 path=Jugador.cpp
-cursor=7:19
+cursor=9:18
 open=true
 [source]
 path=Partida.cpp
@@ -35,7 +35,7 @@ cursor=2:16
 open=true
 [header]
 path=Jugador.h
-cursor=8:0
+cursor=20:7
 open=true
 [header]
 path=Partida.h
