@@ -48,6 +48,18 @@ Jugador::Personaje(){
 			
 			//Se redibuja la "nave" utilizando las nuevas coordenadas
 			putchxy(x,y,'A');
+			
+			//Se limita el movimiento del eje X, para no superar el límite del juego
+			if (x >= 100){
+				erase(x,y);
+				x = 100;
+				draw(x,y);
+			}
+			if (x <= 20){
+				erase(x,y);
+				x = 20;
+				draw(x,y);
+			}
 		}
 	}
 }

@@ -40,7 +40,7 @@ fullpath_on_project_tree=0
 use_cache_for_subcommands=1
 beautify_compiler_errors=1
 colour_theme=default.zcs
-complements_timestamp=20260104105501
+complements_timestamp=20260105143540
 
 [Debug]
 allow_edition=0
