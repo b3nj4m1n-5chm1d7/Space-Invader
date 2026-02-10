@@ -20,6 +20,9 @@ private:
 	int x;
 	int y;
 	
+	int f;
+	int g;
+	
 };
 
 #endif
