@@ -15,7 +15,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=Jugador.cpp
+current_source=Partida.cpp
 path_char=\
 [source]
 path=main.cpp
@@ -27,7 +27,7 @@ cursor=39:19
 open=true
 [source]
 path=Partida.cpp
-cursor=19:20
+cursor=31:9
 open=true
 [source]
 path=Enemigos.cpp
