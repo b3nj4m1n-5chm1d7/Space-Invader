@@ -3,9 +3,7 @@
 #include "Pantalla.h"
 #include "Enemigos.h"
 
-Jugador player;
 Pantalla p;
-Enemigos e;
 
 //Se establece una etapa de inicio (pantalla de inicio)
 void comienzo(){
@@ -38,11 +36,20 @@ void comienzo(){
 
 //Se establece una etapa donde se cargan los contenidos del juego
 void andar(){
+	
 	p.Interfaz();
-	e.BadGuy();
-	player.Personaje();
+	
+	Enemigos e;
+	Jugador player;
+	
+	while(true){
+	e.mover();
+	player.actualizar();
+	
+	Sleep(30);
+	}
 }
-
+	
 //Se carga una "etapa" de Victoria
 void victoria(){
 	cout<<endl<<"Ganaste";

@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include <conio2.h>
+#include <windows.h>
 
 using namespace std;
 

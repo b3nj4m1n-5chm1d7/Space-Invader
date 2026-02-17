@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include <conio2.h>
+#include <ctime>
 
 using namespace std;
 
@@ -12,8 +13,8 @@ class Jugador {
 	
 public:
 	
-	Personaje();
-	
+	Jugador();
+	void actualizar();
 	
 private:
 	
@@ -22,6 +23,11 @@ private:
 	
 	int f;
 	int g;
+	
+	clock_t tempoBala;
+	clock_t pasoBala;
+	
+	bool shoot;
 	
 };
 
