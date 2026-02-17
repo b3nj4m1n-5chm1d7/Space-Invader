@@ -29,6 +29,8 @@ private:
 	clock_t tempoEnem;
 	clock_t pasoEnem;
 	
+	bool derrota;
+	
 };
 
 #endif

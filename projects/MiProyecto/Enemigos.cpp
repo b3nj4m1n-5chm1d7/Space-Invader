@@ -14,6 +14,8 @@ Enemigos::Enemigos(){
 	alt = 3;
 	dir = 2;
 	
+	derrota = false;
+	
 	velocidad = 5;
 	
 	putchxy(pos,alt,'W');
@@ -42,5 +44,19 @@ void Enemigos::mover() {
 		drawEnm(pos,alt);
 	
 		tempoEnem = clock();
+	}
+	
+	if (alt >= 5){
+		derrota = true;
+	}
+	if (derrota){
+		pos = 50;
+		dir = 0;
+		velocidad = 0;
+		system("cls");
+		for (int i = 0; i < 10; i++){
+			cout<<endl;
+		}
+		cout<<"                                             Perdiste"<<endl<<"                                         Intentalo otra vez";
 	}
 }
