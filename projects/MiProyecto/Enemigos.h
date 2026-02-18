@@ -5,8 +5,12 @@
 #include <conio2.h>
 #include <ctime>
 
+#include "BaseEnemigo.h"
+
 using namespace std;
 
+const int FILAS = 4;
+const int COLUMNAS = 10;
 
 
 class Enemigos {
@@ -16,14 +20,16 @@ public:
 	Enemigos();
 	
 	void mover();
+	void dibujar();
 	
 	
 private:
 	
-	int pos;
-	int alt;
+	BaseEnemigo* matriz[FILAS][COLUMNAS];
+	
+	int offsetX;
+	int offsetY;
 	int dir;
-	int contador;
 	int velocidad;
 	
 	clock_t tempoEnem;

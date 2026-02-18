@@ -1,56 +1,96 @@
 #include "Enemigos.h"
 
-void drawEnm( int pos, int alt){
-	putchxy(pos,alt,'W');
+#include "TankEnemy.h"
+#include "BasicEnemy.h"
+#include "MedEnem.h"
+
+void Enemigos::dibujar(){
+	
+	for (int f = 0; f<FILAS; f ++){
+		for (int c = 0; c<COLUMNAS; c++){
+			
+			if (matriz[f][c]->viviendo()){
+				int x = offsetX + c*4;
+				int y = offsetY + f*2;
+				
+				putchxy(x, y, matriz[f][c]->sprite());
+			}
+		}
+	}
 }
 
-void borrarEnm(int pos,int alt){
-	putchxy(pos,alt,' ');
+void Borrar(int offsetX, int offsetY, BaseEnemigo* matriz[FILAS][COLUMNAS]){
+	
+	for (int f = 0; f <FILAS; f++){
+		for (int c = 0; c < COLUMNAS; c++){
+			
+			if (matriz[f][c]->viviendo()){
+				
+				int x = offsetX +c*4;
+				int y = offsetY + f*2;
+				
+				putchxy(x, y, ' ');
+			}
+		}
+	}
 }
 
 Enemigos::Enemigos(){
 	
-	pos = 60;
-	alt = 3;
+	offsetX = 20;
+	offsetY = 3;
 	dir = 2;
 	
 	derrota = false;
 	
 	velocidad = 5;
 	
-	putchxy(pos,alt,'W');
-	
 	pasoEnem = CLOCKS_PER_SEC/velocidad;
 	tempoEnem = clock();
+	
+	for (int f = 0; f <FILAS; f ++){
+		for (int c = 0; c <COLUMNAS; c++){
+			
+			if (f == 0){
+				matriz[f][c] = new TankEnemy();
+			}
+			else if (f==1 ||f==2){
+				matriz[f][c] = new MedEnem();
+			}
+			else{
+				matriz[f][c] = new BasicEnemy();
+			}
+		}
+	}
 }
 
 void Enemigos::mover() {
 	
 	if(clock() - tempoEnem > pasoEnem){
 	
-		borrarEnm(pos,alt);
-		pos+= dir;
+		Borrar(offsetX, offsetY, matriz);
+		offsetX += dir;
 		
-		if (pos >= 100){
-			pos = 100;
-			dir = -2;
-			alt++;
+		if (offsetX + COLUMNAS*4 >= 100){
+			offsetX = 100 - COLUMNAS*4;
+			dir = -dir;
+			offsetY++;
 		}
-		if (pos<= 20){
-			pos = 20;
-			dir = 2;
-			alt++;
+		if (offsetX<= 20){
+			offsetX = 20;
+			dir = -dir;
+			offsetY++;
 		}
-		drawEnm(pos,alt);
+		dibujar();
 	
 		tempoEnem = clock();
 	}
 	
-	if (alt >= 5){
+	if (offsetY >= 28){
 		derrota = true;
 	}
 	if (derrota){
-		pos = 50;
+		offsetX = 50;
 		dir = 0;
 		velocidad = 0;
 		system("cls");
