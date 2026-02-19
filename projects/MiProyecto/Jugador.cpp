@@ -114,3 +114,25 @@ void Jugador::actualizar(){
 		}
 	}
 }
+
+//Se establece una deteccion de la bala
+bool Jugador::DisparoActivo(){
+	return shoot;
+}
+
+//Se detectan las coordenadas de la bala
+int Jugador::balaX(){
+	return f;
+}
+
+int Jugador::balaY(){
+	return g;
+}
+
+//Establece una "dasaparición" para la bala
+bool Jugador::destruirBala(){
+	if (shoot){
+		putchxy(f,g,' ');
+		shoot = false;
+	}
+}

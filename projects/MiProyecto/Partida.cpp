@@ -39,11 +39,11 @@ void andar(){
 	
 	p.Interfaz();
 	
-	Enemigos e;
 	Jugador player;
+	Enemigos enemigos(&player);
 	
 	while(true){
-	e.mover();
+	enemigos.mover();
 	player.actualizar();
 	
 	Sleep(30);

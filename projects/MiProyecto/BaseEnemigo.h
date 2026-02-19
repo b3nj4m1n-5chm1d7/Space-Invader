@@ -27,7 +27,6 @@ public:
 	bool viviendo() {return vivo;}
 	bool muerto() {vivo = false;}
 	
-	
 private:
 	
 };

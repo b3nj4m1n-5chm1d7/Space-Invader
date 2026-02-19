@@ -6,6 +6,7 @@
 #include <ctime>
 
 #include "BaseEnemigo.h"
+#include "Jugador.h"
 
 using namespace std;
 
@@ -17,13 +18,20 @@ class Enemigos {
 	
 public:
 	
-	Enemigos();
+	Enemigos(Jugador* j);
+	
+	void posEnemigos();
 	
 	void mover();
 	void dibujar();
 	
+	void detectarColision();
+	
+	void buscarVida(int& minCol, int& maxCol);
 	
 private:
+	
+	Jugador* jugador;
 	
 	BaseEnemigo* matriz[FILAS][COLUMNAS];
 	

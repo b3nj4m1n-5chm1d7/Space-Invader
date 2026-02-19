@@ -9,12 +9,20 @@ using namespace std;
 
 
 
+class Enemigos;
+
 class Jugador {
 	
 public:
 	
 	Jugador();
 	void actualizar();
+	
+	bool DisparoActivo();
+	int balaX();
+	int balaY();
+	
+	bool destruirBala();
 	
 private:
 	

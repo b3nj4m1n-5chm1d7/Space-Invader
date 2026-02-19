@@ -1,9 +1,12 @@
 #include "Enemigos.h"
+#include <windows.h>
 
+//Se llama a cada tipo de enemigo
 #include "TankEnemy.h"
 #include "BasicEnemy.h"
 #include "MedEnem.h"
 
+//Se establece una etapa de dibujo
 void Enemigos::dibujar(){
 	
 	for (int f = 0; f<FILAS; f ++){
@@ -19,6 +22,7 @@ void Enemigos::dibujar(){
 	}
 }
 
+//Se establece una fase de borrado
 void Borrar(int offsetX, int offsetY, BaseEnemigo* matriz[FILAS][COLUMNAS]){
 	
 	for (int f = 0; f <FILAS; f++){
@@ -35,11 +39,14 @@ void Borrar(int offsetX, int offsetY, BaseEnemigo* matriz[FILAS][COLUMNAS]){
 	}
 }
 
-Enemigos::Enemigos(){
+//Se establecen las caracteristicas generales de los enemigos
+Enemigos::Enemigos(Jugador* j){
+	
+	jugador = j;
 	
 	offsetX = 20;
 	offsetY = 3;
-	dir = 2;
+	dir = 1;
 	
 	derrota = false;
 	
@@ -64,31 +71,44 @@ Enemigos::Enemigos(){
 	}
 }
 
+//Establece las caracteristicas del movimiento enemigo
 void Enemigos::mover() {
-	
+
+	//Se mueve automaticamenet ded izquierda a derecha, bajando una vez en cada ocasión
 	if(clock() - tempoEnem > pasoEnem){
-	
+		
 		Borrar(offsetX, offsetY, matriz);
 		offsetX += dir;
 		
-		if (offsetX + COLUMNAS*4 >= 100){
-			offsetX = 100 - COLUMNAS*4;
+		int minCol;
+		int maxCol;
+		buscarVida(minCol,maxCol);
+		
+		//Se detiene en caso de no haber más enemigos
+		if (minCol == -1) return;
+		
+		//Se establecen bordes que se actualizan
+		int bordeIzq = offsetX + minCol*4;
+		int bordeDer = offsetX + maxCol*4;
+		
+		if (bordeDer >= 100){
 			dir = -dir;
 			offsetY++;
 		}
-		if (offsetX<= 20){
-			offsetX = 20;
+		if (bordeIzq <= 20){
 			dir = -dir;
 			offsetY++;
 		}
 		dibujar();
-	
+		
 		tempoEnem = clock();
 	}
 	
+	//Se crea una fase de derrota si los enemigos llegan muy abajo
 	if (offsetY >= 28){
 		derrota = true;
 	}
+	
 	if (derrota){
 		offsetX = 50;
 		dir = 0;
@@ -98,5 +118,58 @@ void Enemigos::mover() {
 			cout<<endl;
 		}
 		cout<<"                                             Perdiste"<<endl<<"                                         Intentalo otra vez";
+	}
+	
+	detectarColision();
+	
+}
+
+//Detecta la colision de la bala con el enemigo que corresponda
+void Enemigos::detectarColision(){
+	
+	if(!jugador->DisparoActivo()) return;
+	
+	int bx = jugador->balaX();
+	int by = jugador->balaY();
+	
+	for (int f = 0; f<FILAS; f++){
+		for(int c = 0; c<COLUMNAS; c++){
+			
+			if (matriz[f][c]->viviendo()){
+				
+				int ex = offsetX + c*4;
+				int ey = offsetY + f*2;
+				
+				if (bx == ex && by == ey){
+					matriz[f][c]->muerto();
+					
+					putchxy(ex,ey,'*');
+					Sleep(30);
+					putchxy(ex,ey,' ');
+					
+					jugador->destruirBala();
+					return;
+				}
+			}
+		}
+	}
+}
+
+//Detecta si todavía hay algun enemigo sobreviviente en cualquiera de las columnas, y las actualiza en caso de no haber ninguno
+void Enemigos::buscarVida(int& minCol, int& maxCol){
+	
+	minCol = COLUMNAS;
+	maxCol = -1;
+	
+	for (int f = 0; f < FILAS; f++){
+		for (int c = 0; c < COLUMNAS; c ++){
+			
+			if (matriz[f][c]->viviendo()){
+				
+				if ( c < minCol) minCol = c;
+				
+				if ( c > maxCol) maxCol = c;
+			}
+		}
 	}
 }
