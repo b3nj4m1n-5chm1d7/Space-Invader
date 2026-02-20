@@ -16,7 +16,9 @@ public:
 	
 	MedEnem();
 	
+	//Apariencia
 	char sprite() override {return 'H';}
+	//Puntos que otorga
 	char puntos() override {return 15;}
 	
 private:

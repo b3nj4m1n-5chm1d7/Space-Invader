@@ -16,7 +16,9 @@ public:
 	
 	TankEnemy();
 	
+	//Apariencia
 	char sprite() override {return 'M';}
+	//Puntos que otorga
 	char puntos() override {return 30;}
 	
 private:

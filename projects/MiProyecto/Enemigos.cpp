@@ -44,19 +44,23 @@ Enemigos::Enemigos(Jugador* j){
 	
 	jugador = j;
 	
+	//Posicion de los enemigos al empezar
 	offsetX = 20;
 	offsetY = 3;
+	//Distancia que recorren los enemigoas
 	dir = 1;
 	
 	valor = 0;
 	
 	derrota = false;
 	
+	//Velocidad del enemigo
 	velocidad = 5;
 	
 	pasoEnem = CLOCKS_PER_SEC/velocidad;
 	tempoEnem = clock();
 	
+	//Se dibuja cada tipo de enemigo en una fila determinada
 	for (int f = 0; f <FILAS; f ++){
 		for (int c = 0; c <COLUMNAS; c++){
 			
@@ -76,6 +80,9 @@ Enemigos::Enemigos(Jugador* j){
 //Establece las caracteristicas del movimiento enemigo
 void Enemigos::mover() {
 
+	//Se evitan "parpadeos" en caso de finalizar la partida
+	if (dir == 0) return;
+	
 	//Se mueve automaticamenet ded izquierda a derecha, bajando una vez en cada ocasión
 	if(clock() - tempoEnem > pasoEnem){
 		
@@ -122,7 +129,12 @@ void Enemigos::mover() {
 		cout<<"                                             Perdiste"<<endl<<"                                         Intentalo otra vez";
 	}
 	
+	//Se llaman a las caracteristicas de los enemigos al ser impactados por las nalas del jugador
 	detectarColision();
+	if (!TodosMuertos()){
+		Victoria();
+		return;
+	}
 	mostrarPuntos();
 }
 
@@ -142,6 +154,7 @@ void Enemigos::detectarColision(){
 				int ex = offsetX + c*4;
 				int ey = offsetY + f*2;
 				
+				//Busca si la posicion de la bala es la misma que la de algun enemigo
 				if (bx == ex && by == ey){
 					valor += matriz[f][c]->puntos();
 					matriz[f][c]->muerto();
@@ -177,9 +190,40 @@ void Enemigos::buscarVida(int& minCol, int& maxCol){
 	}
 }
 
+//Indica los puntos que posee el jugador
 void Enemigos::mostrarPuntos(){
 	
 	gotoxy(5,1);
 	cout<<"Puntos: "<<valor;
 	
+}
+
+//Detecta si todavía queda vivo cualquier enemigo en pantalla
+bool Enemigos::TodosMuertos(){
+	
+	for (int f = 0; f < FILAS; f++){
+		for (int c = 0; c < COLUMNAS; c++){
+			
+			if (matriz[f][c]->viviendo()){
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+//Mensaje de Victoria en caso de matar a todos los enemigos, indicando los puntos acumulados
+void Enemigos::Victoria(){
+	system("cls");
+	
+	for (int i = 0; i < 10; i++){
+		cout<<endl;
+	}
+	
+	cout<<"                                  GANASTE!"<<endl;
+	cout<<"                            Mataste a todos los enemigos"<<endl;
+	cout<<"                                Puntos: "<<valor;
+	
+	dir = 0;
+	velocidad = 0;
 }

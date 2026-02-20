@@ -20,16 +20,22 @@ public:
 	
 	Enemigos(Jugador* j);
 	
-	void posEnemigos();
-	
+	//Movimiento enemigo
 	void mover();
 	void dibujar();
 	
+	//Colision con bala del jugador
 	void detectarColision();
 	
+	//Deteccion de columnas restantes
 	void buscarVida(int& minCol, int& maxCol);
 	
+	//Puntos que se otorgan
 	void mostrarPuntos();
+	
+	//Etapas para victoria
+	bool TodosMuertos();
+	void Victoria();
 	
 private:
 	
@@ -37,6 +43,7 @@ private:
 	
 	BaseEnemigo* matriz[FILAS][COLUMNAS];
 	
+	//Estadisticas para el enemigo
 	int offsetX;
 	int offsetY;
 	int dir;
@@ -44,9 +51,11 @@ private:
 	
 	int valor;
 	
+	//Tiempo para moverse
 	clock_t tempoEnem;
 	clock_t pasoEnem;
 	
+	//Si posicion enemigo fuera igual que posicion jugador en el eje "Y"
 	bool derrota;
 	
 };

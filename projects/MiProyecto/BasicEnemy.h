@@ -16,7 +16,9 @@ public:
 	
 	BasicEnemy();
 	
+	//Apariencia
 	char sprite() override {return 'W';}
+	//Puntos que otorga
 	char puntos() override {return 10;}
 	
 private:

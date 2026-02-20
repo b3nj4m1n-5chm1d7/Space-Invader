@@ -15,25 +15,31 @@ class Jugador {
 	
 public:
 	
+	//Se da valor a las caracteristicas generales del jugador
 	Jugador();
+	
+	//Se llama al movimiento y disparo del jugador
 	void actualizar();
 	
+	//Comparte las distintas caracteristicas del disparo del jugador para otras clases
 	bool DisparoActivo();
 	int balaX();
 	int balaY();
 	
+	//"Desaparece" la bala
 	bool destruirBala();
 	
 private:
 	
+	//Posicion jugador
 	int x;
 	int y;
 	
+	//Posicion bala
 	int f;
 	int g;
 	
-	int puntos;
-	
+	//Velocidad de la bala
 	clock_t tempoBala;
 	clock_t pasoBala;
 	

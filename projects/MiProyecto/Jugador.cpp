@@ -10,6 +10,7 @@ void erase(int x, int y){
 	putchxy(x,y,' ');
 }
 	
+//Etapa de dibujo y de borrado para la bala
 void dibujo(int f,int g){
 	putchxy(f,g,'|');
 }

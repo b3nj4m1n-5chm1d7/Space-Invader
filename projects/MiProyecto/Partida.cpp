@@ -50,15 +50,9 @@ void andar(){
 	}
 }
 	
-//Se carga una "etapa" de Victoria
-void victoria(){
-	cout<<endl<<"Ganaste";
-}
-	
 Partida::inicio() {
 	
 	comienzo();
 	andar();
-	victoria();
 }
 

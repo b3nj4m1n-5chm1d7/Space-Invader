@@ -21,6 +21,7 @@ public:
 	
 	virtual ~BaseEnemigo() {}
 	
+	//Se crean estadisticas generales para cada "hijo"/Tipo de enemigo
 	virtual char sprite() = 0;
 	virtual char puntos() = 0;
 	
