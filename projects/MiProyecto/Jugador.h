@@ -32,6 +32,8 @@ private:
 	int f;
 	int g;
 	
+	int puntos;
+	
 	clock_t tempoBala;
 	clock_t pasoBala;
 	

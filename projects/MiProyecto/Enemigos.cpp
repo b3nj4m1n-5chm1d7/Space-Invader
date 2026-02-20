@@ -48,6 +48,8 @@ Enemigos::Enemigos(Jugador* j){
 	offsetY = 3;
 	dir = 1;
 	
+	valor = 0;
+	
 	derrota = false;
 	
 	velocidad = 5;
@@ -121,7 +123,7 @@ void Enemigos::mover() {
 	}
 	
 	detectarColision();
-	
+	mostrarPuntos();
 }
 
 //Detecta la colision de la bala con el enemigo que corresponda
@@ -141,6 +143,7 @@ void Enemigos::detectarColision(){
 				int ey = offsetY + f*2;
 				
 				if (bx == ex && by == ey){
+					valor += matriz[f][c]->puntos();
 					matriz[f][c]->muerto();
 					
 					putchxy(ex,ey,'*');
@@ -172,4 +175,11 @@ void Enemigos::buscarVida(int& minCol, int& maxCol){
 			}
 		}
 	}
+}
+
+void Enemigos::mostrarPuntos(){
+	
+	gotoxy(5,1);
+	cout<<"Puntos: "<<valor;
+	
 }

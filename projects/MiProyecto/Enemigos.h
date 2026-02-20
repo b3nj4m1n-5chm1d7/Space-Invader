@@ -29,6 +29,8 @@ public:
 	
 	void buscarVida(int& minCol, int& maxCol);
 	
+	void mostrarPuntos();
+	
 private:
 	
 	Jugador* jugador;
@@ -39,6 +41,8 @@ private:
 	int offsetY;
 	int dir;
 	int velocidad;
+	
+	int valor;
 	
 	clock_t tempoEnem;
 	clock_t pasoEnem;
