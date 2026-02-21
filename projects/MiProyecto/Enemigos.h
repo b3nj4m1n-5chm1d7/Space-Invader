@@ -37,6 +37,10 @@ public:
 	bool TodosMuertos();
 	void Victoria();
 	
+	//Caracteristicas de la bala enemiga
+	void DisparoAleatorio();
+	void BalaActiva();
+	
 private:
 	
 	Jugador* jugador;
@@ -57,6 +61,19 @@ private:
 	
 	//Si posicion enemigo fuera igual que posicion jugador en el eje "Y"
 	bool derrota;
+	
+	//Coordenadas de la bala
+	struct BalaEnemigo{
+		int x;
+		int y;
+		
+		bool activa;
+	};
+	
+	BalaEnemigo bala;
+	
+	clock_t tempoBala;
+	clock_t pasoBala;
 	
 };
 

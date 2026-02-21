@@ -26,6 +26,10 @@ public:
 	int balaX();
 	int balaY();
 	
+	//Comparte la posicion del jugador con otras clases
+	int posX();
+	int posY();
+	
 	//"Desaparece" la bala
 	bool destruirBala();
 	

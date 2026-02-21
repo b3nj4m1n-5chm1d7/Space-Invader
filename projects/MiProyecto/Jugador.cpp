@@ -137,3 +137,11 @@ bool Jugador::destruirBala(){
 		shoot = false;
 	}
 }
+
+int Jugador::posX(){
+	return x;
+}
+
+int Jugador::posY(){
+	return y;
+}

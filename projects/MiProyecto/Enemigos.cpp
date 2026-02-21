@@ -60,6 +60,11 @@ Enemigos::Enemigos(Jugador* j){
 	pasoEnem = CLOCKS_PER_SEC/velocidad;
 	tempoEnem = clock();
 	
+	bala.activa = false;
+	
+	pasoBala = CLOCKS_PER_SEC *2;
+	tempoBala = clock();
+	
 	//Se dibuja cada tipo de enemigo en una fila determinada
 	for (int f = 0; f <FILAS; f ++){
 		for (int c = 0; c <COLUMNAS; c++){
@@ -136,6 +141,8 @@ void Enemigos::mover() {
 		return;
 	}
 	mostrarPuntos();
+	DisparoAleatorio();
+	BalaActiva();
 }
 
 //Detecta la colision de la bala con el enemigo que corresponda
@@ -226,4 +233,43 @@ void Enemigos::Victoria(){
 	
 	dir = 0;
 	velocidad = 0;
+}
+
+//Selecciona una Columna aleatoria para disparar, y dispara siempre desde la fila más cercana al jugador
+void Enemigos::DisparoAleatorio(){
+	
+	if (bala.activa) return;
+	
+	if (clock() - tempoBala < pasoBala) return;
+	
+	int col = rand() % COLUMNAS;
+	
+	for (int f = FILAS - 1; f >= 0; f--){
+		
+		if (matriz[f][col]->viviendo()){
+			bala.x = offsetX + col*4;
+			bala.y = offsetY + f*2 + 1;
+			bala.activa = true;
+			
+			break;
+		}
+	}
+	tempoBala = clock();
+}
+
+//Detecta si alguna bala se encuentra activa en pantalla, en caso de ser negativo, genera un nuevo disparo
+void Enemigos::BalaActiva(){
+	
+	if (!bala.activa) return;
+	
+	putchxy (bala.x,bala.y,' ');
+	
+	bala.y++;
+	
+	if (bala.y >30){
+		bala.activa = false;
+		return;
+	}
+	
+	putchxy(bala.x,bala.y,'.');
 }
