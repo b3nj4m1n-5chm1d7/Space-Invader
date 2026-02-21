@@ -13,19 +13,24 @@ void comienzo(){
 		cout <<endl;
 	}
 	
+	textcolor(BLUE);
 	//Se presenta el titulo e instruciones del juego
 	cout << "                                                ============================="<<endl;
 	cout << "                                                       Space Invaders        "<<endl<<endl;
 	cout << "                                                     Intro Programacion        "<<endl;
 	cout << "                                                      Benjamin Schmidt        "<<endl;
 	cout << "                                                ============================="<<endl<<endl;
+	textcolor(LIGHTGREEN);
 	cout << "                                                       Instrucciones:        "<<endl;
 	cout << "                            Movimiento: presione la tecla A para mover la nave hacia la izquierda,        "<<endl;
 	cout << "                                        presione la tecla D para mover hacia la derecha        "<<endl;
 	cout << "                                   Disparo: presione la tecla ESPACIO para accionar el disparo        "<<endl<<endl;
+	textcolor(DARKGRAY);
 	cout << "                                        Gana si todas las naves enemigas son destruidas        "<<endl;
+	textcolor(RED);
 	cout << "                                  Pierde si queda sin vidas al alcanzarlo cualquier disparo enemigo,        "<<endl;
 	cout << "                                         o si los enemigos alcanzan la misma linea que el jugados        "<<endl<<endl<<endl;
+	textcolor(WHITE);
 	cout << "                                           Presiona cualquier tecla para comenzar..."<<endl;
 	
 	//Se espera a que el jugador presione alguna tecla

@@ -131,6 +131,7 @@ void Enemigos::mover() {
 		for (int i = 0; i < 10; i++){
 			cout<<endl;
 		}
+		textcolor(RED);
 		cout<<"                                             Perdiste"<<endl<<"                                         Intentalo otra vez";
 	}
 	
@@ -201,10 +202,13 @@ void Enemigos::buscarVida(int& minCol, int& maxCol){
 void Enemigos::HUD(){
 	
 	gotoxy(25,1);
+	textcolor(CYAN);
 	cout<<"Puntos: "<<valor;
 	
+	textcolor(MAGENTA);
 	gotoxy(5,1);
 	cout<<"Vidas: "<<jugador->vidas;
+	textcolor(WHITE);
 }
 
 //Detecta si todavía queda vivo cualquier enemigo en pantalla
@@ -228,7 +232,7 @@ void Enemigos::Victoria(){
 	for (int i = 0; i < 10; i++){
 		cout<<endl;
 	}
-	
+	textcolor(GREEN);
 	cout<<"                                  GANASTE!"<<endl;
 	cout<<"                            Mataste a todos los enemigos"<<endl;
 	cout<<"                                Puntos: "<<valor;

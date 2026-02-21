@@ -182,6 +182,7 @@ void Jugador::recibirDano(){
 	
 	if (vidas <= 0){
 		system("cls");
+		textcolor(RED);
 		cout<<endl<<endl<<endl<<endl<<endl<<"                                  Perdiste";
 	}
 }
