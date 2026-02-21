@@ -30,6 +30,11 @@ public:
 	int posX();
 	int posY();
 	
+	void recibirDano();
+	
+	//Cantidad de balas que puede recibir
+	int vidas;
+	
 	//"Desaparece" la bala
 	bool destruirBala();
 	
@@ -49,6 +54,12 @@ private:
 	
 	bool shoot;
 	
+	bool invencible;
+	
+	clock_t tempodano;
+	clock_t duracionInv;
+	
+	bool parpadeo;
 };
 
 #endif

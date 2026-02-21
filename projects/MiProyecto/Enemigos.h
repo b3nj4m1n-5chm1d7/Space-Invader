@@ -31,7 +31,7 @@ public:
 	void buscarVida(int& minCol, int& maxCol);
 	
 	//Puntos que se otorgan
-	void mostrarPuntos();
+	void HUD();
 	
 	//Etapas para victoria
 	bool TodosMuertos();

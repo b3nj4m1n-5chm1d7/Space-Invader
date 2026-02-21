@@ -140,7 +140,7 @@ void Enemigos::mover() {
 		Victoria();
 		return;
 	}
-	mostrarPuntos();
+	HUD();
 	DisparoAleatorio();
 	BalaActiva();
 }
@@ -198,11 +198,13 @@ void Enemigos::buscarVida(int& minCol, int& maxCol){
 }
 
 //Indica los puntos que posee el jugador
-void Enemigos::mostrarPuntos(){
+void Enemigos::HUD(){
 	
-	gotoxy(5,1);
+	gotoxy(25,1);
 	cout<<"Puntos: "<<valor;
 	
+	gotoxy(5,1);
+	cout<<"Vidas: "<<jugador->vidas;
 }
 
 //Detecta si todavía queda vivo cualquier enemigo en pantalla
@@ -272,4 +274,10 @@ void Enemigos::BalaActiva(){
 	}
 	
 	putchxy(bala.x,bala.y,'.');
+	
+	if (bala.x == jugador->posX() && bala.y == jugador->posY()){
+		bala.activa = false;
+		
+		jugador->recibirDano();
+	}
 }

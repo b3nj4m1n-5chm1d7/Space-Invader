@@ -29,6 +29,13 @@ Jugador::Jugador(){
 	f = x;
 	g = 30;
 	
+	vidas = 3;
+	
+	invencible = false;
+	duracionInv = CLOCKS_PER_SEC;
+	
+	parpadeo = true;
+	
 	//Se dibuja la nave dentro de las coordenadas establecidas
 	putchxy(x,y,'A'); 
 	
@@ -41,6 +48,25 @@ Jugador::Jugador(){
 }
 
 void Jugador::actualizar(){
+	
+	if (invencible){
+		
+		if (clock()- tempodano > duracionInv){
+			invencible = false;
+			parpadeo = true;
+			putchxy(x,y,'A');
+		}
+		else{
+			if (parpadeo){
+				putchxy(x,y,' ');
+				parpadeo = false;
+			}
+			else {
+				putchxy(x,y,'A');
+				parpadeo = true;
+			}
+		}
+	}
 	
 	if(kbhit()) {
 		
@@ -144,4 +170,18 @@ int Jugador::posX(){
 
 int Jugador::posY(){
 	return y;
+}
+
+void Jugador::recibirDano(){
+	
+	if (invencible) return;
+	
+	vidas--;
+	invencible = true;
+	tempodano = clock();
+	
+	if (vidas <= 0){
+		system("cls");
+		cout<<endl<<endl<<endl<<endl<<endl<<"                                  Perdiste";
+	}
 }
